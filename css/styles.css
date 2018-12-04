@@ -1,4 +1,20 @@
 
+ #before-load {
+            position: fixed; /*фиксированное положение блока*/
+            left: 0; /*положение элемента слева*/
+            top: 0; /*положение элемента сверху*/
+            right: 0; /*положение элемента справа*/
+            bottom: 0; /*положение элемента снизу*/
+            background: #fff; /*цвет заднего фона блока*/
+            z-index: 1001; /*располагаем его над всеми элементами на странице*/
+        }
+        #before-load i {
+            font-size: 140px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -70px 0 0 -70px;
+        }
 
 body {
     margin: 0;
@@ -104,7 +120,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #212529;
+  background-color: #fff;
 }
 
 #mainNav .navbar-toggler {
@@ -135,8 +151,8 @@ img::-moz-selection {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -479,9 +495,7 @@ ul.social-buttons {
     font-size: 14px;
     line-height: 1.4;
 }
-.about-me-btn a:last-child{
-    margin-left:20px;
-}
+
 .span-title {
    display:block;
    float:left;

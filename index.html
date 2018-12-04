@@ -2,7 +2,6 @@
 <html lang="ru">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -20,27 +19,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <!-- CSS -->
  <link href="css/styles.css" rel="stylesheet">
- <style>
-        #before-load {
-            position: fixed; /*фиксированное положение блока*/
-            left: 0; /*положение элемента слева*/
-            top: 0; /*положение элемента сверху*/
-            right: 0; /*положение элемента справа*/
-            bottom: 0; /*положение элемента снизу*/
-            background: #fff; /*цвет заднего фона блока*/
-            z-index: 1001; /*располагаем его над всеми элементами на странице*/
-        }
-        #before-load i {
-            font-size: 140px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: -70px 0 0 -70px;
-        }
-    </style>
-  
+ 
    </head>
-  <body id="page-top">
+  <body id="page-top" >
 <div id="before-load">
     <i class="fa fa-spinner fa-spin"></i>
 </div>
@@ -52,22 +33,21 @@
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Stas Rusakevich</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Меню
-          <i class="fa fa-bars"></i>
+          <i class="fab fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" data-spy="scroll">
           <ul class="navbar-nav text-uppercase ml-auto">
-
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">about me</a>
+              <a class="nav-link" href="#about">about me</a>
             </li>            
              <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#skills">skills</a>
+              <a class="nav-link" href="#skills">skills</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">portfolio</a>
+              <a class="nav-link" href="#portfolio">portfolio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">contact</a>
+              <a class="nav-link" href="#contact">contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://gagarinnumberone.ru/%D0%B1%D0%BB%D0%BE%D0%B3/">my blog</a>
@@ -134,7 +114,6 @@
         </div>
         </div>
        </section>
-
     <!-- Skills  -->
     <section class="bg-light" id="skills">
       <div class="container">
@@ -279,9 +258,7 @@
           </div>
         </div>
       </div>
-    </section>                                     
-   
-                         
+    </section>    
 <!-- Contact -->
     <section id="contact">
    
@@ -322,11 +299,7 @@
           </div>
         </div>
        
-    </section>                    
-                                
-                                
-
-
+    </section>          
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="row">
@@ -540,8 +513,7 @@
           </div>
         </div>
       </div>
-    </div>
-      
+    </div>      
     <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script>
@@ -549,7 +521,23 @@
         $('#before-load').find('i').fadeOut().end().delay(400).fadeOut('slow');
     });
 </script>
+ <script> 
+ $(document).ready(function(){
+	$("#mainNav").on("click","a", function (event) {
+		//отменяем стандартную обработку нажатия по ссылке
+		event.preventDefault();
 
+		//забираем идентификатор бока с атрибута href
+		var id  = $(this).attr('href'),
+
+		//узнаем высоту от начала страницы до блока на который ссылается якорь
+			top = $(id).offset().top;
+		
+		//анимируем переход на расстояние - top за 700 мс
+		$('body,html').animate({scrollTop: top}, 700);
+	});
+});
+</script>
   </body>
 
 </html>
